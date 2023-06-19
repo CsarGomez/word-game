@@ -1,7 +1,11 @@
+import Header from '@components/Header/Header';
+import Game from '@components/Game/Game';
+
 function App() {
   return (
     <>
-      <h1>Testing</h1>
+      <Header />
+      <Game />
     </>
   );
 }
