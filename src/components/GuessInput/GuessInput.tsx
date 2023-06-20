@@ -1,12 +1,16 @@
 import { useState } from 'react';
 
-const GuessInput = () => {
-  const [guess, setGuess] = useState('');
+interface Props {
+  handleSubmitGuess: (guess: string) => void;
+}
+
+const GuessInput = ({ handleSubmitGuess }: Props) => {
+  const [tentativeGuess, setTentativeGuess] = useState('');
 
   function handleSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
-    console.log({ guess });
-    setGuess('');
+    handleSubmitGuess(tentativeGuess);
+    setTentativeGuess('');
   }
 
   return (
@@ -18,10 +22,10 @@ const GuessInput = () => {
         maxLength={5}
         pattern='[a-zA-Z]{5}'
         title='5 letter word'
-        value={guess}
+        value={tentativeGuess}
         onChange={(event) => {
           const nextGuess = event.target.value.toUpperCase();
-          setGuess(nextGuess);
+          setTentativeGuess(nextGuess);
         }}
         id='guess-input'
         type='text'

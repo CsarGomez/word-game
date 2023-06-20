@@ -28,6 +28,15 @@ header {
   border-bottom: 1px solid hsl(0deg 0% 75%);
   color: hsl(0deg 0% 25%);
 }
+main {
+  height: calc(100vh - 4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
 .guess-input-wrapper {
   max-width: 320px;
   margin: 0 auto;
