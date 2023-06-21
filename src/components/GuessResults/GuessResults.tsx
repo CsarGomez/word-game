@@ -1,14 +1,16 @@
-import { Guess } from '@/models/models';
+import Guess from '@components/guess/Guess';
+import { NUMBER_OF_GUESSES_ALLOWED } from '@/constants';
+import { range } from '@/helpers';
 
 interface Props {
-  guesses: Guess[];
+  guesses: string[];
 }
 const GuessResults = ({ guesses }: Props) => {
   return (
     <>
       <div className='guess-results'>
-        {guesses.map(({ value, id }) => (
-          <p key={id}>{value}</p>
+        {range(0, NUMBER_OF_GUESSES_ALLOWED).map((num) => (
+          <Guess key={num} value={guesses[num]} />
         ))}
       </div>
     </>

@@ -1,4 +1,3 @@
-export interface Guess {
+export interface GuessType {
   value: string;
-  id: string;
 }

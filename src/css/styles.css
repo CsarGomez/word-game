@@ -14,6 +14,7 @@ html {
   --black: #000000;
   --blue-hover: #91bbf2;
   --blue: #0d65d9;
+  --gray: hsl(0deg 0% 75%);
 }
 body {
   font-family: 'Roboto', sans-serif;
@@ -32,7 +33,7 @@ main {
   height: calc(100vh - 4rem);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
   padding: 1rem;
@@ -60,4 +61,48 @@ main {
 .guess-input-wrapper input:focus {
   border-color: var(--color-gray-500);
   outline: 2px solid var(--blue-hover);
+}
+.guess {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+.cell {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: grid;
+  place-content: center;
+  /* aspect-ratio: 1 / 1; */
+  border: 2px solid var(--gray);
+  border-radius: 0.2rem;
+  font-size: 2rem;
+}
+.guess:first-of-type .cell:first-of-type {
+  --radius: 4px 0px 0px 0px;
+}
+.guess:first-of-type .cell:last-of-type {
+  --radius: 0px 4px 0px 0px;
+}
+.guess:last-of-type .cell:last-of-type {
+  --radius: 0px 0px 4px 0px;
+}
+.guess:last-of-type .cell:first-of-type {
+  --radius: 0px 0px 0px 4px;
+}
+
+.cell.correct {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: white;
+}
+.cell.incorrect {
+  background: var(--color-gray-300);
+  border-color: var(--color-gray-300);
+  color: white;
+}
+.cell.misplaced {
+  background: var(--color-warning);
+  border-color: var(--color-warning);
+  color: white;
 }
