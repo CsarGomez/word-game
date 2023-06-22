@@ -14,7 +14,7 @@ html {
   --black: #000000;
   --blue-hover: #91bbf2;
   --blue: #0d65d9;
-  --gray: hsl(0deg 0% 75%);
+  --gray: hsl(0deg 0% 25%);
 }
 body {
   font-family: 'Roboto', sans-serif;
@@ -33,7 +33,7 @@ main {
   height: calc(100vh - 4rem);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   gap: 1rem;
   padding: 1rem;
@@ -73,7 +73,6 @@ main {
   height: 3.5rem;
   display: grid;
   place-content: center;
-  /* aspect-ratio: 1 / 1; */
   border: 2px solid var(--gray);
   border-radius: 0.2rem;
   font-size: 2rem;
@@ -97,8 +96,8 @@ main {
   color: white;
 }
 .cell.incorrect {
-  background: var(--color-gray-300);
-  border-color: var(--color-gray-300);
+  background: var(--gray);
+  border-color: var(--gray);
   color: white;
 }
 .cell.misplaced {

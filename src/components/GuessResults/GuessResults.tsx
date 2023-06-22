@@ -4,13 +4,14 @@ import { range } from '@/helpers';
 
 interface Props {
   guesses: string[];
+  answer: string;
 }
-const GuessResults = ({ guesses }: Props) => {
+const GuessResults = ({ guesses, answer }: Props) => {
   return (
     <>
       <div className='guess-results'>
         {range(0, NUMBER_OF_GUESSES_ALLOWED).map((num) => (
-          <Guess key={num} value={guesses[num]} />
+          <Guess key={num} value={guesses[num]} answer={answer} />
         ))}
       </div>
     </>

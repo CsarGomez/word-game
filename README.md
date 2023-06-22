@@ -1,5 +1,7 @@
 # Word Game
 
+![Word Game](/public/word-game.png)
+
 ## clone and run the project:
 
 1. clone project

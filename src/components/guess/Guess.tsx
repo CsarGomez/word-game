@@ -1,17 +1,19 @@
+import { checkGuess } from '@/game-helper';
 import { range } from '@/helpers';
+import Cell from './Cell';
 
 interface Props {
   value: string;
+  answer: string;
 }
 
-const Guess = ({ value }: Props) => {
-  console.log(value);
+const Guess = ({ value, answer }: Props) => {
+  const result = checkGuess(value, answer);
+
   return (
     <p className='guess'>
       {range(0, 5).map((num) => (
-        <span key={num} className='cell'>
-          {value ? value[num] : undefined}
-        </span>
+        <Cell key={num} letter={result ? result[num].letter : undefined} status={result ? result[num].status : undefined} />
       ))}
     </p>
   );
