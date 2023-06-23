@@ -2,9 +2,10 @@ import { useState } from 'react';
 
 interface Props {
   handleSubmitGuess: (guess: string) => void;
+  gameStatus: string;
 }
 
-const GuessInput = ({ handleSubmitGuess }: Props) => {
+const GuessInput = ({ handleSubmitGuess, gameStatus }: Props) => {
   const [tentativeGuess, setTentativeGuess] = useState('');
 
   function handleSubmit(event: React.SyntheticEvent) {
@@ -18,6 +19,7 @@ const GuessInput = ({ handleSubmitGuess }: Props) => {
       <label htmlFor='guess-input'>Enter Guess:</label>
       <input
         required
+        disabled={gameStatus !== 'playing'}
         minLength={5}
         maxLength={5}
         pattern='[a-zA-Z]{5}'

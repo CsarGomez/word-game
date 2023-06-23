@@ -1,6 +1,6 @@
 import { checkGuess } from '@/game-helper';
 import { range } from '@/helpers';
-import Cell from './Cell';
+import Cell from '@/components/Guess/Cell';
 
 interface Props {
   value: string;
