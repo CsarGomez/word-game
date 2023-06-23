@@ -22,8 +22,7 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@models/*": ["src/models/*"]
+      "@components/*": ["src/components/*"]
     }
   },
   "include": ["src"],

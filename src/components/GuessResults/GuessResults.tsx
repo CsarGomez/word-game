@@ -1,4 +1,4 @@
-import Guess from '@/components/Guess/Guess';
+import Guess from '@components/Guess/Guess';
 import { NUMBER_OF_GUESSES_ALLOWED } from '@/constants';
 import { range } from '@/helpers';
 
