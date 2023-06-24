@@ -7,12 +7,14 @@ import { NUMBER_OF_GUESSES_ALLOWED } from '@/constants';
 import { sample } from '@/helpers';
 import { WORDS } from '@/data';
 
-const answer = sample(WORDS);
-console.log({ answer });
+const initialAnswer = sample(WORDS);
 
 const Game = () => {
   const [guesses, setGuesses] = useState<string[]>([]);
   const [gameStatus, setGameStatus] = useState<'won' | 'lost' | 'playing'>('playing');
+  const [answer, setAnswer] = useState<string>(initialAnswer);
+
+  console.log({ answer });
 
   const handleSubmitGuess = (tentativeGuess: string) => {
     const nextGuesses = [...guesses, tentativeGuess];
@@ -24,12 +26,19 @@ const Game = () => {
       setGameStatus('lost');
     }
   };
+
+  const handleResetGame = () => {
+    setGuesses([]);
+    setGameStatus('playing');
+    setAnswer(sample(WORDS));
+  };
+
   return (
     <main>
       <GuessResults guesses={guesses} answer={answer} />
       <GuessInput handleSubmitGuess={handleSubmitGuess} gameStatus={gameStatus} />
-      {gameStatus === 'won' && <WonBanner numOfGuesses={guesses.length} />}
-      {gameStatus === 'lost' && <LostBanner answer={answer} />}
+      {gameStatus === 'won' && <WonBanner numOfGuesses={guesses.length} onReset={handleResetGame} />}
+      {gameStatus === 'lost' && <LostBanner answer={answer} onReset={handleResetGame} />}
     </main>
   );
 };
