@@ -6,7 +6,6 @@ interface Props {
 }
 
 const WonBanner = ({ numOfGuesses, onReset }: Props) => {
-  console.log({ numOfGuesses });
   return (
     <Banner status='happy'>
       <>

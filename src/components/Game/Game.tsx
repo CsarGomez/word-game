@@ -14,8 +14,6 @@ const Game = () => {
   const [gameStatus, setGameStatus] = useState<'won' | 'lost' | 'playing'>('playing');
   const [answer, setAnswer] = useState<string>(initialAnswer);
 
-  console.log({ answer });
-
   const handleSubmitGuess = (tentativeGuess: string) => {
     const nextGuesses = [...guesses, tentativeGuess];
     setGuesses(nextGuesses);
